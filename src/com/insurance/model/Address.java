@@ -20,6 +20,10 @@ public class Address {
         this.zipCode = zipCode;
     }
 
+    public Address(String address) {
+        setAddress(address);
+    }
+
     public int getBuildingNumber() {
         return buildingNumber;
     }
@@ -56,7 +60,7 @@ public class Address {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
-    public void createAddress(String strAddress) {
+    public void setAddress(String strAddress) {
         // 1 Belmont Ave, San Francisco, OH 44555, USA
         //      0           1               2       3
         String[] addressArr = strAddress.split(",");
@@ -82,5 +86,15 @@ public class Address {
         this.setState(state);
         this.setZipCode(zipCode);
         this.setCountry(country);
+    }
+
+    @Override
+    public String toString() {
+        return buildingNumber +
+                ", " + street +
+                ", " + city +
+                ", " + state +
+                ", " + country +
+                ", " + zipCode;
     }
 }

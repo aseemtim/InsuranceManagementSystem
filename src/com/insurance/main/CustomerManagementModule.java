@@ -3,9 +3,10 @@ package com.insurance.main;
 import com.insurance.model.Address;
 import com.insurance.model.Customer;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+
+// TODO: -> Update
 
 public class CustomerManagementModule  extends Customer {
 
@@ -47,8 +48,7 @@ public class CustomerManagementModule  extends Customer {
 
         System.out.println("Enter Address (0000 st-address, city, STATE-CODE zip-code, country): ");
         String strAddress = scanner.nextLine();
-        Address customerAddress = new Address(); //
-        customerAddress.createAddress(strAddress); // ??
+        Address customerAddress = new Address(strAddress); //
 
         System.out.println("Enter email: ");
         String email = scanner.nextLine();
@@ -65,7 +65,6 @@ public class CustomerManagementModule  extends Customer {
                 customerMobileNumber
         );
         saveCustomer(newCustomer);
-        System.out.println("Customer " + newCustomer.getFirstName() + " successfully created");
     }
 
     /**
@@ -73,7 +72,7 @@ public class CustomerManagementModule  extends Customer {
      * */
     public static void saveCustomer(Customer customer){
         customersInfo.put(getUniqueId(), customer);
-        System.out.println("Customer created successfully.");
+        System.out.println("Customer " + customer.getFirstName() +" created successfully.");
     }
 
     /**
@@ -85,17 +84,12 @@ public class CustomerManagementModule  extends Customer {
             System.out.println("Customer successfully deleted.");
         }
         else
-            System.out.println("Customer couldn't be found with that id.");
+            System.out.println("Customer " + id+ " couldn't be found.");
     }
-
-
     // print allCustomer
     public  static void printAllCustomers() {
         for (Integer key : customersInfo.keySet()) {
-            System.out.println("Customer ID: " + key);
+            System.out.println(customersInfo.get(key));
         }
     }
-
-
-
 }

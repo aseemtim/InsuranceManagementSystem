@@ -92,4 +92,13 @@ public class Customer extends Address {
     public void setCustomerMobileNumber(String customerMobileNumber) {
         this.customerMobileNumber = customerMobileNumber;
     }
+    @Override
+    public String toString() {
+        // TODO - check for middlename
+        return ("Name: " + this.getFirstName() + this.middleName + this.lastName + "\n" +
+                "DOB: " + this.getCustomerDob() + "\n" +
+                "Address: " + this.address + "\n" +
+                "Email: " + this.email + "\n" +
+                "Mobile: " + this.customerMobileNumber);
+    }
 }
