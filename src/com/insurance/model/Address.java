@@ -72,13 +72,16 @@ public class Address {
         {
             street += houseAddress[i];
         }
-        String city = addressArr[1];
+        String city = addressArr[1].strip();
 
-        String[] stateZipArr = addressArr[2].split(" ");
+        String[] stateZipArr = addressArr[2].strip().split(" ");
         String state = stateZipArr[0];
         String zipCode = stateZipArr[1];
+        for (String e : stateZipArr) {
+            System.out.println("One" + e);
+        }
 
-        String country = addressArr[3];
+        String country = addressArr[3].strip();
 
         this.setBuildingNumber(houseNum);
         this.setStreet(street);
@@ -90,11 +93,11 @@ public class Address {
 
     @Override
     public String toString() {
-        return buildingNumber +
-                ", " + street +
-                ", " + city +
-                ", " + state +
-                ", " + country +
-                ", " + zipCode;
+        return this.buildingNumber +
+                " " + this.street +
+                ", " + this.city +
+                ", " + this.state +
+                ", " + this.zipCode +
+                ", " + this.country;
     }
 }
