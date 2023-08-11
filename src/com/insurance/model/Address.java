@@ -77,9 +77,6 @@ public class Address {
         String[] stateZipArr = addressArr[2].strip().split(" ");
         String state = stateZipArr[0];
         String zipCode = stateZipArr[1];
-        for (String e : stateZipArr) {
-            System.out.println("One" + e);
-        }
 
         String country = addressArr[3].strip();
 
